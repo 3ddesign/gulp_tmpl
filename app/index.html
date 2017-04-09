@@ -25,7 +25,6 @@
 <!--<p>test</p>-->
 <!--<p>test</p>-->
 
-
 <div class="chartHTML"></div>
 <div class="chartSVG"></div>
 
@@ -64,9 +63,7 @@
         x.domain([0, d3.max(data, function(d) {
             return d.price;
         })])
-
         chart.attr('height', barHeight * data.length);
-
         chart.selectAll('g')
                 .data(data)
                 .enter().append('g')
