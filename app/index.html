@@ -7,82 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/common.js"></script>
-    <script type="application/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
-<!--<script type="application/javascript">-->
-<!--d3.select('body').selectAll('p')-->
-<!--.data([16, 23, 42])-->
-<!--.enter()-->
-<!--.append('p')-->
-<!--.text("Hello");-->
-<!--</script>-->
 
-<!--<h1>test2</h1>-->
-<!--<p>test</p>-->
-<!--<p>test</p>-->
-<!--<p>test</p>-->
-<!--<p>test</p>-->
-<div class="chartHTML"></div>
-<div class="chartSVG"></div>
-
-<script>
-    d3.selectAll("p")
-            .data([10, 20, 30, 40, 50])
-            .style("font-size", function (d) {
-                return d + "px";
-            });
-
-    //    var data = [10, 20, 30, 40, 50];
-
-    //    var x = d3.scale.linear()
-    //            .domain([0, d3.max(data)])
-    //            .range([0, 350]);
-    //
-    //    d3.select('.chartHTML')
-    //            .selectAll('div')
-    //            .data(data)
-    //            .enter().append('div')
-    //            .style('width', function (d) {
-    //                return x(d) + 'px';
-    //            })
-    //            .text(function (d) {
-    //                return d;
-    //            });
-
-    var width = 350;
-    var brHeight = 20;
-    var x = d3.scale.linear()
-            .range([0, 350]);
-
-    var chart = d3.select.(".chartSVG").attr('width', width);
-
-    d3.tsv("dataTSV.tsv", type, function(error, data) {
-        x.domain([0, d3.max(data, function(d) {
-            return d.price;
-        })])
-        chart.attr('height', barHeight * data.length);
-        chart.selectAll('g')
-                .data(data)
-                .enter().append('g')
-                .attr("transform", function(d,i) {
-                    return "translate(0" + i * barHeight + ")";
-
-                    bar.append('rect')
-                            .attr('width', function(d) {
-                                return x(d.price);
-                            })
-                            .attr('height', barHeight - 1);
-
-                    bar.append('text')
-                            .attr('x', function() {
-                                return x(d.price) - 3
-                            } )
-                })
-    });
-
-</script>
 </body>
 
 </html>
